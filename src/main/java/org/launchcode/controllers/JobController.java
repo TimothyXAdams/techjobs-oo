@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -22,11 +23,13 @@ public class JobController {
 
     // The detail display for a given Job at URLs like /job?id=17
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(Model model, int id) {
+    public String index(Model model, @RequestParam int id) {
 
         // TODO #1 - get the Job with the given ID and pass it into the view
-        Job currentJob = jobData.findById(6);
-        String TEST = "TESTING TESTING TESTING";
+        Job currentJob = jobData.findById(id);
+        model.addAttribute("job", currentJob);
+        //String TEST = "TESTING TESTING TESTING";
+        //model.addAttribute("String", TEST);
         return "job-detail";
     }
 

@@ -1,7 +1,8 @@
 package org.launchcode.controllers;
 
-import org.launchcode.models.forms.JobForm;
+import org.launchcode.models.Job;
 import org.launchcode.models.data.JobData;
+import org.launchcode.models.forms.JobForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -24,7 +25,8 @@ public class JobController {
     public String index(Model model, int id) {
 
         // TODO #1 - get the Job with the given ID and pass it into the view
-
+        Job currentJob = jobData.findById(6);
+        String TEST = "TESTING TESTING TESTING";
         return "job-detail";
     }
 

@@ -25,6 +25,7 @@ public class JobController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model, @RequestParam int id) {
 
+
         // TODO #1 - get the Job with the given ID and pass it into the view
         Job currentJob = jobData.findById(id);
         model.addAttribute("job", currentJob);
@@ -46,7 +47,12 @@ public class JobController {
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
 
-        return "";
+        Job newJob =  new Job();
+
+        newJob.setName(jobForm.name);
+
+
+        return "job-detail";
 
     }
 }

@@ -119,3 +119,4 @@ public class JobData {
         return positionTypes;
     }
 }
+

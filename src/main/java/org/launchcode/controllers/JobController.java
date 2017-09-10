@@ -47,7 +47,7 @@ public class JobController {
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
         //String aName, Employer aEmployer, Location aLocation,
-        //PositionType aPositionType, CoreCompetency aSkil
+        //PositionType aPositionType, CoreCompetency aSkill
 
         String   name                 = jobForm.getName();
         Employer employer             = jobData.getEmployers().findById(jobForm.getEmployerId());
@@ -55,19 +55,13 @@ public class JobController {
         PositionType positionType     = jobData.getPositionTypes().findById(jobForm.getPositionTypeId());
         CoreCompetency coreCompetency = jobData.getCoreCompetencies().findById(jobForm.getCoreCompetencyId());
 
-
+        if (name == "") {return "new-job";} //If the name is blank, don't even create a new job
 
         Job newJob = new Job(name, employer, location, positionType, coreCompetency);
-
-        if (newJob.getName() == "") {return "new-job";}
 
         jobData.add(newJob);
 
         model.addAttribute("job", newJob);
-
-
-        //newJob.setName(     );
-
 
         return "job-detail";
 

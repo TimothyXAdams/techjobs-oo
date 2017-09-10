@@ -15,8 +15,10 @@ public class Job {
     private CoreCompetency coreCompetency;
 
     public Job() {
+
         id = nextId;
         nextId++;
+
     }
 
     public Job(String aName, Employer aEmployer, Location aLocation,

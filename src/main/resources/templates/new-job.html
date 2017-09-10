@@ -8,7 +8,8 @@
 
 <div class="container body-content">
 
-    <form th:object="$action="@{/add jobForm}" method="post">
+    <!-- <form th:action="@{/add jobForm}" method=""post"> -->
+    <form th:object="${jobForm}" method="post">
 
         <div class="form-group">
             <label th:for="name">Name</label>
